@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "_macro.html" as macro %}
+
+{% block title %}Flasky - Comment Moderation{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Commnent Moderation</h1>
+</div>
+{% set moderate = True %}
+{% include '_comment.html' %}
+{% if pagination %}
+<div class="pagination">
+    {{  macro.pagination_widget(pagination, '.moderate') }}
+</div>
+{% endif %}
+{% endblock %}
