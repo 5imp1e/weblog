@@ -2,18 +2,17 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% import "_macro.html" as macro %}
 
-{% block title %}Flasky{% endblock %}
+{% block title %}Simp1e{% endblock %}
 
 {% block page_content %}
-<div class="page-header">
-    <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
-</div>
-<div>
+<div class="post-tabs">
     {% if current_user.can(Permission.WRITE_ARTICLES) %}
     {{ wtf.quick_form(form) }}
     {% endif %}
 </div>
-{% include '_post.html' %}
+<div >
+    {% include '_post.html' %}
+</div>
 {% if pagination %}
 <div class="pagination">
     {{ macro.pagination_widget(pagination, '.index') }}
@@ -21,7 +20,14 @@
 {% endif %}
 {% endblock %}
 
-{% block scripts %}
-{{ super() }}
-{{ pagedown.include_pagedown() }}
-{% endblock %}
+<footer class="footer">
+
+    <div class="footer-socials">
+        <a href="#"><i class="fa fa-weibo"></i></a>
+
+    </div>
+    <div class="footer-bottom">
+        <i class="fa fa-copyright"></i>Copyright 2016. All rights reserved.<br>
+        Theme was provided by <a href="http://www.mooxthemes.com">MOOZ</a>
+    </div>
+</footer>
