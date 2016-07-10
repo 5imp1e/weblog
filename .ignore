@@ -1,0 +1,7 @@
+#python:
+manager.py
+manager.pyc
+#my configuration
+/.idea
+fabfile.py
+/temp
