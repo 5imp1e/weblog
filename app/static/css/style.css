@@ -53,6 +53,12 @@ section {
 section:last-child {
 	padding-bottom: 0px;
 }
+div.post-tabs{
+	margin-top: 80px;
+}
+li.comment{
+	margin-top: 10px;
+}
 /*- Reset bootstrap -*/
 @media (min-width: 1200px)
 .container {
@@ -107,7 +113,7 @@ header {
 .bx-wrapper .bx-controls-direction a {
 	position: absolute;
 	top: 50%;
-	margin-top: -16px;
+	margin-top: 16px;
 	outline: 0;
 	width: 50px;
 	height: 50px;
@@ -136,42 +142,47 @@ header {
 	color: #dfdfdf;
 }
 /*- blog post -*/
-.blog-post {
+.posts {
 	padding-bottom: 30px;
-	margin-bottom: 60px;
+	margin-bottom: 20px;
+/*- blog distance with textarea -*/
+	margin-top: 60px;
 	border-bottom: 1px solid #CECECE;
 }
-.blog-post:last-child {
+.post-tab {
+	margin-top: 80px;
+}
+.posts:last-child {
 	border-bottom: none;
 }
-.blog-post .blog-post-body {
+.posts .posts-body {
 	text-align: center;
 	padding: 20px 0;
 }
-.blog-post .blog-post-body h2 {
+.posts .posts-body h2 {
 	margin: 0;
 	padding: 15px 0px 20px;
 	font-size: 41px;
 	line-height: 49px;
 }
-.blog-post .blog-post-body p {
+.posts .posts-body p {
 	text-align: justify;
 	font-size: 20px;
 	font-weight: 300;
 	line-height: 30px;
 	color: #000;
 }
-.blog-post .blog-post-body a {
+.posts .posts-body a {
 	color: #4A4A4A;
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
 	-o-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
-.blog-post .blog-post-body a:hover  {
+.posts .posts-body a:hover  {
 	color: #dddddd;
 }
-.blog-post .post-meta {
+.posts .post-meta {
 	margin: 5px 0 20px;
 	font-weight: 400;
 	font-size: 16px;
@@ -179,25 +190,25 @@ header {
 	font-family: "Lora";
 	font-style: italic;
 }
-.blog-post .post-meta a {
+.posts .post-meta a {
 	color: #B1B1B1;
 }
-.blog-post .post-meta a:hover {
+.posts .post-meta a:hover {
 	color: #fed136;
 }
-.blog-post .post-meta span {
+.posts .post-meta span {
 	padding-left: 15px;
 	padding-right: 15px;
 }
-.blog-post .post-meta span:first-child {
+.posts .post-meta span:first-child {
 	padding-left: 0;
 	padding-right: 15px;
 }
-.blog-post .post-meta i {
+.posts .post-meta i {
 	padding-right: 5px;
 	font-size: 12px;
 }
-.blog-post .read-more a {
+.posts .read-more a {
 	display: inline-block;
 	padding: 12px 40px;
 	margin: 30px 0 0px;
@@ -215,15 +226,15 @@ header {
 	-o-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
-.blog-post .read-more a:hover {
+.posts .read-more a:hover {
 	background-color: #fed136;
 	border-color: #fed136;
 	color: #fff;
 }
-.blog-post .blog-post-text {
+.posts .posts-text {
 	text-align: left;
 }
-.blog-post .blog-post-text p {
+.posts .posts-text p {
 	text-align: justify;
 	font-size: 17px;
 	font-weight: 400;

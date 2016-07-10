@@ -16,5 +16,5 @@ class PostForm(Form):
 
 
 class CommentForm(Form):
-    body = StringField('', validators=[Required()])
+    body = PageDownField('', validators=[Required()])
     submit = SubmitField('Submit')

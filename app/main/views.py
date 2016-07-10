@@ -51,7 +51,8 @@ def post(id):
     if form.validate_on_submit():
         comment = Comment(body=form.body.data,
                           post=post,
-                          author=current_user._get_current_object())
+                          #author=current_user._get_current_object()
+                          )
         db.session.add(comment)
         flash('Your comment has been pulished.')
         return redirect(url_for('.post', id=post.id, page=-1))
@@ -60,7 +61,7 @@ def post(id):
         #comment or comments
         page = (post.comments.count() - 1) //\
             current_app.config['FLASKY_COMMNET_PER_PAGE'] + 1
-    pagination = post.comments.order_by(Comment.timestamp.asc()).paginate(
+    pagination = post.comments.order_by(Comment.timestamp.desc()).paginate(
         page, per_page=current_app.config['FLASKY_COMMNET_PER_PAGE'],
         error_out=False)
     comments = pagination.items

@@ -1,25 +1,18 @@
-<ul class="posts">
-    <div class="row">
-        <div class="col-md-8">
-            <article class='posts'>
-                {% for post in posts %}
-                <div class="post-body" >
-                    {% if post.body_html %}
-                        {{ post.body_html | safe }}
-                    {% else %}
-                        {{ post.body }}
-                    {% endif %}
-                </div>
-                <div class="post-meta"><span>by Simp1e</span>/<span><i class="fa fa-clock-o">{{ moment(post.timestamp).fromNow() }}</i></span>/<span><i class="fa fa-comment-o"></i> <a href="{{ url_for('.post', id=post.id) }}#comments">{{ post.comments.count() }}</a></span>
-                </div>
-                
-                <div class="post-footer">
-                    {% if current_user == post.author %}
-                    <a href="{{ url_for('.edit', id=post.id) }}"><span class="label label-primary">Edit</span></a>
-                    {% endif %}
-                {% endfor %}                    
-                </div>
-            </article>
+{% for post in posts %}
+    <article class='posts'>
+        <div class="post-body" >
+            {% if post.body_html %}
+                {{ post.body_html | safe }}
+            {% else %}
+                {{ post.body }}
+            {% endif %}
         </div>
-    </div>
-</ul>
+        <div class="post-meta"><span>by Simp1e</span>/<span><i class="fa fa-clock-o">&ensp;{{ moment(post.timestamp).format('YYYY年 M月 D日, h:mm a') }}</i></span>/<span><i class="fa fa-comment-o"></i> <a href="{{ url_for('.post', id=post.id) }}#comments">{{ post.comments.count() }}</a></span>
+        </div>
+        <div class="post-footer">
+            {% if current_user == post.author %}
+                <a href="{{ url_for('.edit', id=post.id) }}"><span class="label label-primary">Edit</span></a>
+            {% endif %}                        
+        </div>
+    </article>
+{% endfor %}
