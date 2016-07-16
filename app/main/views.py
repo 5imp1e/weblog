@@ -74,7 +74,7 @@ def post(id):
 #@permission_required(Permission.ADMINISTOR)
 def moderate_enable(id):
     comment = Comment.query.get_or_404(id)
-    comment.disable = False
+    comment.disabled = False
     db.session.add(comment)
     return redirect(url_for('.moderate',
                             page=request.args.get('page', 1, type=int)))
@@ -85,7 +85,7 @@ def moderate_enable(id):
 #@permission_required(Permission.ADMINISTOR)
 def moderate_disable(id):
     comment = Comment.query.get_or_404(id)
-    comment.disable = True
+    comment.disabled = True
     db.session.add(comment)
     return redirect(url_for('.moderate',
                             page=request.args.get('page', 1, type=int)))
