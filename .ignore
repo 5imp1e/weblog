@@ -1,4 +1,5 @@
 #python:
+*.pyc
 manager.py
 manager.pyc
 #my configuration
