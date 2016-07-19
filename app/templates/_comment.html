@@ -16,7 +16,7 @@
                         {{ comment.body }}
                     {% endif %}
                 {% endif %}
-            </div>            
+            </div>
             {% if moderate %}
                 <br>
                 {% if comment.disabled %}
@@ -24,7 +24,10 @@
                 {% else %}
                     <a class="btn btn-danger btn-xs" href="{{ url_for('.moderate_disable', id=comment.id, page=page) }}">Disable</a>
                 {% endif %}
-            {% endif %}            
+                    
+                    <a class="btn btn-danger btn-xs" href="{{ url_for('.comments_delete', id=comment.id, page=page) }}">Delete</a>
+
+            {% endif %}
         </div>
     </li>
     {% endfor %}
