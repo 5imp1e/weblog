@@ -1,4 +1,6 @@
 # !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from flask import render_template, redirect, url_for, request, current_app,\
     abort, flash
 from flask.ext.login import login_required, current_user
@@ -68,7 +70,8 @@ def post(id):
     return render_template('post.html', posts=[post], form=form,
                            comments=comments, pagination=pagination)
 
-
+# ToDo: 需要将index中post文本框新建为单独的网页，以免造成删除后加载页面失败
+#该错误造成的主要原因为页面返回时，需要重新渲染页面，查询form参数
 @main.route('/post/delete/<int:id>')
 def post_delete(id):
     post = Post.query.get_or_404(id)
