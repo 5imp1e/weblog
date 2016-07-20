@@ -71,15 +71,11 @@ def post(id):
 
 @main.route('/post/delete/<int:id>')
 def post_delete(id):
-    page = request.args.get('page', 1, type=int)
-    pagination = Post.query.order_by(Post.timestamp.desc()).paginate(
-        page, per_page=current_app.config['FLASKY_POST_PER_PAGE'],
-        error_out=False)
-    posts = pagination.items
     post = Post.query.get_or_404(id)
     db.session.delete(post)
     db.session.commit()
-    return render_template('index.html', posts=posts)
+    return render_template('post.html',
+                           page=request.args.get('page', 1, type=int))
 
 
 @main.route('/moderate/enbale/<int:id>')
