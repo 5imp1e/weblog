@@ -1,6 +1,8 @@
 
-{% extends "bootstrap/base.html" %}
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<html xmlns="http://www.w3c.org/1999/xhtml">
+<head>
 {% block title %}Simp1e - A simple blog{% endblock %}
 
 {% block head %}
@@ -24,10 +26,12 @@
 <link rel="stylesheet" type="text/css" href="app/static/css/style.css">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}" >
 <link href="/static/css/jquery.bxslider.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="app/static/tango.css">
 <link href="/static/css/style.css" rel="stylesheet">
-
 {% endblock %}
+</head>
 
+<body>
 {% block navbar %}
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -89,25 +93,32 @@
 </div>
 {% endblock %}
 
-{% block scripts %}
-{{ super() }}
-{{ moment.include_moment() }}
-{% endblock %}
 
-
-{% block footer%}
 <footer class="footer">
-
-    <div class="footer-socials">
-        <a href="#"><i class="fa fa-weibo"></i></a>
-
-    </div>
-    <div class="footer-bottom">
-        <i class="fa fa-copyright"></i>Copyright 2016. All rights reserved.<br>
-        Theme was provided by <a href="http://www.mooxthemes.com">MOOZ</a>
-    </div>
+    {% block footer %}
+        <div class="footer-socials">
+            <a href="#"><i class="fa fa-weibo"></i></a>
+            <a href="http://github.com/5imp1e?tab=repositories"><i class="fa fa-github"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <i class="fa fa-copyright"></i>Copyright 2016. All rights reserved.<br>
+            This a simp1e blog base on Flask.<br>
+            Theme was provided by <a href="http://www.mooxthemes.com">MOOZ</a>
+        </div>
+        <link rel="stylesheet" type="text/css" href="app/static/css/style.css">    
+    {% endblock %}
 </footer>
+{% block scripts %}
+{{ moment.include_jquery() }}
+{{ moment.include_moment() }}
+
 {% endblock %}
+
+</body>
+
+
+
+
 <!-- Bootstrap core JavaScript
             ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
