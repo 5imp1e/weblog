@@ -371,7 +371,7 @@ footer {
 	border-top: 1px solid #CECECE;
 }
 footer .footer-socials {
-	margin: 60px 0 20px;
+	margin: 15px 0 10px;
 }
 footer .footer-socials a {
 	display: inline-block;
@@ -380,9 +380,9 @@ footer .footer-socials a {
 	color: #fff;
 	/* padding: 20px; */
 	font-size: 20px;
-	line-height: 45px;
-	width: 45px;
-	height: 45px;
+	line-height: 35px;
+	width: 35px;
+	height: 35px;
 	border-radius: 50%;
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
@@ -393,5 +393,11 @@ footer .footer-socials a:hover {
 	background-color: #dddddd;
 }
 footer .footer-bottom {
-	padding: 10px 0 40px;
+	padding: 10px 0 10px;
+}
+
+form{
+	
+	padding-bottom: 40px;
+	margin: 50px 0px 80px 0;
 }
