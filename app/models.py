@@ -8,17 +8,19 @@ from app.exception import ValidationError
 from . import db, login_manager
 from datetime import datetime
 from markdown import markdown
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name, PythonLexer
+from pygments.formatters import HtmlFormatter
+from pygments.filters import VisibleWhitespaceFilter
 import bleach
 
 
 class Permission:
-    FOLLOW = 0x01
+    #    FOLLOW = 0x01
     COMMENT = 0x02
     WRITE_ARTICLES = 0x04
     MODERATE_COMMENTS = 0x08
     ADMINISTOR = 0x80
-
-# 5.14 Role表单中有三个角色： User, Admin, Administrator,不明白为什么！
 
 
 class Role(db.Model):
@@ -211,10 +213,9 @@ class Post(db.Model):
             'a': ['href', 'rel'],
             'img': ['src', 'alt'],
         }
-
-        target.body_html = bleach.linkify(bleach.clean(
-            markdown(value, output_format='html'),
-            tags=allowed_tags, strip=True, attributes=attrs))
+        markdowns = markdown(value, output_format='html', extension=['codehilite'])
+        target.body_html = bleach.linkify(bleach.clean(markdowns,
+                                                       tags=allowed_tags, strip=True, attributes=attrs))
 
     def to_json(self):
         json_post = {
@@ -250,6 +251,8 @@ class Comment(db.Model):
     body_html = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     disabled = db.Column(db.Boolean)
+    # 增加删除功能
+    delete = db.Column(db.Boolean)
     # users 可能有问题
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
