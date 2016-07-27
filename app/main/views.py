@@ -13,6 +13,19 @@ from .forms import PostForm, CommentForm
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
+
+    page = request.args.get('page', 1, type=int)
+    pagination = Post.query.order_by(Post.timestamp.desc()).paginate(
+        page, per_page=current_app.config['FLASKY_POST_PER_PAGE'],
+        error_out=False)
+    posts = pagination.items
+    return render_template('index.html', posts=posts,
+                           pagination=pagination)
+
+
+@main.route('/post_form', methods=['GET', 'POST'])
+@login_required
+def post_form():
     form = PostForm()
     if current_user.can(Permission.WRITE_ARTICLES) and \
             form.validate_on_submit():
@@ -20,13 +33,8 @@ def index():
                     author=current_user._get_current_object())
         db.session.add(post)
         return redirect(url_for('.index'))
-    page = request.args.get('page', 1, type=int)
-    pagination = Post.query.order_by(Post.timestamp.desc()).paginate(
-        page, per_page=current_app.config['FLASKY_POST_PER_PAGE'],
-        error_out=False)
-    posts = pagination.items
-    return render_template('index.html', form=form, posts=posts,
-                           pagination=pagination)
+
+    return render_template('post_form.html', form=form)
 
 
 @main.route('/edit/<int:id>', methods=['GET', 'POST'])
@@ -71,7 +79,9 @@ def post(id):
                            comments=comments, pagination=pagination)
 
 # ToDo: 需要将index中post文本框新建为单独的网页，以免造成删除后加载页面失败
-#该错误造成的主要原因为页面返回时，需要重新渲染页面，查询form参数
+# 该错误造成的主要原因为页面返回时，需要重新渲染页面，查询form参数
+
+
 @main.route('/post/delete/<int:id>')
 def post_delete(id):
     post = Post.query.get_or_404(id)

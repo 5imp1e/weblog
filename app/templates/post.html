@@ -13,8 +13,8 @@
 
 {% include '_comment.html' %}
 {% if pagination %}
-<div class="pagination">
-    {{ macro.pagination_widget(pagination, '.post', fragment='#comments', id=posts[0].id) }}
-</div>
+    <div class="pagination">
+        {{ macro.pagination_widget(pagination, '.post', fragment='#comments', id=posts[0].id) }}
+    </div>
 {% endif %}
 {% endblock %}

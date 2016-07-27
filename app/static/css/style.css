@@ -53,15 +53,10 @@ section {
 section:last-child {
 	padding-bottom: 0px;
 }
-div.post-tabs{
-	margin-top: 80px;
-}
-li.comment{
-	margin-top: 10px;
-}
 /*- Reset bootstrap -*/
 @media (min-width: 1200px)
 .container {
+	min-height: 800px;
 	width: 1260px;
 }
 .row-gutter {
@@ -113,7 +108,7 @@ header {
 .bx-wrapper .bx-controls-direction a {
 	position: absolute;
 	top: 50%;
-	margin-top: 16px;
+	margin-top: -16px;
 	outline: 0;
 	width: 50px;
 	height: 50px;
@@ -144,46 +139,43 @@ header {
 /*- blog post -*/
 .posts {
 	padding-bottom: 30px;
-	margin-bottom: 20px;
-/*- blog distance with textarea -*/
 	margin-top: 60px;
 	border-bottom: 1px solid #CECECE;
 }
-.post-tab {
-	margin-top: 80px;
-}
-.posts:last-child {
+.blog-post:last-child {
 	border-bottom: none;
 }
-.posts .posts-body {
+.blog-post .blog-post-body {
 	text-align: center;
 	padding: 20px 0;
 }
-.posts .posts-body h2 {
+.blog-post .blog-post-body h2 {
 	margin: 0;
 	padding: 15px 0px 20px;
 	font-size: 41px;
 	line-height: 49px;
 }
-.posts .posts-body p {
+.blog-post .blog-post-body p {
 	text-align: justify;
 	font-size: 20px;
 	font-weight: 300;
 	line-height: 30px;
 	color: #000;
 }
-.posts .posts-body a {
+.blog-post .blog-post-body a {
 	color: #4A4A4A;
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
 	-o-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
-.posts .posts-body a:hover  {
+.blog-post .blog-post-body a:hover  {
 	color: #dddddd;
 }
 .posts .post-meta {
-	margin: 5px 0 20px;
+	padding-bottom: 60;
+	padding-top: 40;
+	margin: 40px 0 0px;
 	font-weight: 400;
 	font-size: 16px;
 	color: #B1B1B1;
@@ -193,22 +185,22 @@ header {
 .posts .post-meta a {
 	color: #B1B1B1;
 }
-.posts .post-meta a:hover {
+.blog-post .post-meta a:hover {
 	color: #fed136;
 }
 .posts .post-meta span {
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 10px;
+	padding-right: 5px;
 }
-.posts .post-meta span:first-child {
+.blog-post .post-meta span:first-child {
 	padding-left: 0;
 	padding-right: 15px;
 }
-.posts .post-meta i {
+.blog-post .post-meta i {
 	padding-right: 5px;
 	font-size: 12px;
 }
-.posts .read-more a {
+.blog-post .read-more a {
 	display: inline-block;
 	padding: 12px 40px;
 	margin: 30px 0 0px;
@@ -226,15 +218,15 @@ header {
 	-o-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
-.posts .read-more a:hover {
+.blog-post .read-more a:hover {
 	background-color: #fed136;
 	border-color: #fed136;
 	color: #fff;
 }
-.posts .posts-text {
+.blog-post .blog-post-text {
 	text-align: left;
 }
-.posts .posts-text p {
+.blog-post .blog-post-text p {
 	text-align: justify;
 	font-size: 17px;
 	font-weight: 400;
@@ -361,14 +353,19 @@ header {
 }
 /*- Footer -*/
 footer {
+	bottom: 0px;
+	width: 100%;
 	padding: 0;
 	font-size: 12px;
 	font-weight: 500;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: 0px;
 	color: #717171;
 	text-align: center;
 	border-top: 1px solid #CECECE;
+	background-color: #222;
+	margin: 0 0 0 0;
+
 }
 footer .footer-socials {
 	margin: 15px 0 10px;
@@ -395,9 +392,18 @@ footer .footer-socials a:hover {
 footer .footer-bottom {
 	padding: 10px 0 10px;
 }
+.login{
+	padding-top: 30px;
 
-form{
-	
-	padding-bottom: 40px;
-	margin: 50px 0px 80px 0;
+	text-align: center;
+	min-height: 387px;
+
+}
+.page-header{
+	text-align: center;
+}
+
+.post-tabs{
+	padding-top: 60px;
+	min-height: 507px;
 }
